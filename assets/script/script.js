@@ -1,2 +1,2 @@
-console.log("testignlink");
-$("#testjquery").html("testingjquesry");
+// console.log("testignlink");
+// $("#testjquery").html("testingjquesry");
