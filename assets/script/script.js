@@ -10,15 +10,8 @@ var config = {
   
   firebase.initializeApp(config);
   var database = firebase.database();
-  console.log(database);
+  
 
-// var newRow = $("<tr>").append(
-//     $("<td>").text(empName),
-//     $("<td>").text(empRole),
-//     $("<td>").text(empStartPretty),
-//     $("<td>").text(empMonths),
-//     $("<td>").text(empRate),
-//   );
 $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
 
@@ -34,7 +27,29 @@ var newtrainfortable = {
     freq: trainfrequency
   };
 
-  console.log(newtrainfortable);
-  database.ref().push(newtrainfortable);
 
+  database.ref().push(newtrainfortable);
+  $("#train-name-input").val("");
+  $("#destination-input").val("");
+  $("#train-time-input").val("");
+  $("#frequency-input").val("");
+});
+
+database.ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+  var frendy1 = childSnapshot.val().name;
+  var frendy2 = childSnapshot.val().dest;
+  var frendy3 = childSnapshot.val().time;
+  var frendy4 = childSnapshot.val().freq;
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(frendy1),
+        $("<td>").text(frendy2),
+        $("<td>").text(frendy3),
+        $("<td>").text(frendy4),
+        $("<td>").text(frendy4),
+      );
+
+      $("#trainTable").append(newRow);
+    
 });
