@@ -2,10 +2,10 @@
 // $("#testjquery").html("testingjquesry");
 
 var config = {
-    apiKey: "AIzaSyA_QypGPkcjPtylRDscf7-HQl8ribnFeIs",
-    authDomain: "time-sheet-55009.firebaseapp.com",
-    databaseURL: "https://time-sheet-55009.firebaseio.com",
-    storageBucket: "time-sheet-55009.appspot.com"
+    apiKey: "AIzaSyAXxcFBfknEkghvA8tPKRBNUuNucq_cUkA",
+    authDomain: "firstfirebastest.firebaseapp.com",
+    databaseURL: "https://firstfirebastest.firebaseio.com",
+
   };
   
   firebase.initializeApp(config);
@@ -19,3 +19,22 @@ var config = {
 //     $("<td>").text(empMonths),
 //     $("<td>").text(empRate),
 //   );
+$("#add-train-btn").on("click", function(event) {
+    event.preventDefault();
+
+var trainName = $("#train-name-input").val().trim();
+var destination = $("#destination-input").val().trim();
+var traintime = $("#train-time-input").val().trim();
+var trainfrequency = $("#frequency-input").val().trim();
+
+var newtrainfortable = {
+    name: trainName,
+    dest: destination,
+    time: traintime,
+    freq: trainfrequency
+  };
+
+  console.log(newtrainfortable);
+  database.ref().push(newtrainfortable);
+
+});
