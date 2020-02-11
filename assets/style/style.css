@@ -1,0 +1,12 @@
+#tablebox{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 40px;
+
+}
+
+#formbox{
+    padding-bottom: 80px;
+}
